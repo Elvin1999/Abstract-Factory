@@ -74,11 +74,32 @@ namespace ConsoleApp17
         }
     }
 
-    //Idialog,windowsDialog,linuxdialog
+    class Dialog
+    {
+        public IButton Button { get; set; }
+        public ITextBox TextBox { get; set; }
+        public Dialog(IDialog myDialog)
+        {
+            MyDialog = myDialog;
+            Button = MyDialog.CreateButton();
+            TextBox = MyDialog.CreateTextBox();
+        }
+
+        public IDialog MyDialog { get; set; }
+        public void Show()
+        {
+            Console.WriteLine(Button.GetButtonDescription());
+            Console.WriteLine(TextBox.GetTextBoxDescription());
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
+            IDialog dial = new WindowsDialog();
+            Dialog dialog = new Dialog(dial);
+            dialog.Show();
 
         }
     }
