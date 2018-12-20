@@ -84,12 +84,14 @@ namespace ConsoleApp17
             Button = MyDialog.CreateButton();
             TextBox = MyDialog.CreateTextBox();
         }
-
         public IDialog MyDialog { get; set; }
         public void Show()
         {
-            Console.WriteLine(Button.GetButtonDescription());
-            Console.WriteLine(TextBox.GetTextBoxDescription());
+            Console.WriteLine("=======================================");
+            Console.WriteLine($" [{Button.GetButtonDescription()}]");
+            Console.WriteLine("=======================================");
+            Console.WriteLine($" [{TextBox.GetTextBoxDescription()}]");
+            Console.WriteLine("=======================================");
         }
     }
 
