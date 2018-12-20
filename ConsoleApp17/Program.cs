@@ -1,9 +1,10 @@
-﻿using System;
+﻿#define WINDOWS
+#undef  LINUX
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace ConsoleApp17
 {
     interface IButton
@@ -99,7 +100,12 @@ namespace ConsoleApp17
     {
         static void Main(string[] args)
         {
-            IDialog dial = new WindowsDialog();
+            IDialog dial;
+#if (LINUX) 
+          dial = new LinuxDialog();
+#elif (WINDOWS)
+          dial = new WindowsDialog();
+#endif
             Dialog dialog = new Dialog(dial);
             dialog.Show();
 
