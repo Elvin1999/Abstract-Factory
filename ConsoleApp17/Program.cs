@@ -101,10 +101,10 @@ namespace ConsoleApp17
         static void Main(string[] args)
         {
             IDialog dial;
-#if (LINUX) 
+#if (LINUX)
           dial = new LinuxDialog();
 #elif (WINDOWS)
-          dial = new WindowsDialog();
+            dial = new WindowsDialog();
 #endif
             Dialog dialog = new Dialog(dial);
             dialog.Show();
