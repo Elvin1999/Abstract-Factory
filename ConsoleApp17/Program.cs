@@ -108,7 +108,6 @@ namespace ConsoleApp17
 #endif
             Dialog dialog = new Dialog(dial);
             dialog.Show();
-
         }
     }
 }
